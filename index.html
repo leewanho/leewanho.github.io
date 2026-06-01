@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanho Lee — Portfolio</title>
+<style>
+  :root {
+    --ditto-body: #C9A6D9;
+    --ditto-deep: #9B7AB8;
+    --ditto-dark: #6B4E8E;
+    --ditto-light: #F0D7E8;
+    --ditto-bg: #FAF3F7;
+    --ditto-ink: #2D1B3D;
+    --ditto-muted: #7A6989;
+    --ditto-line: #E8D5E5;
+    --ditto-accent: #FF8FBF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Pretendard", "Apple SD Gothic Neo", sans-serif;
+    background: var(--ditto-bg);
+    color: var(--ditto-ink);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 32px 120px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 2px dashed var(--ditto-line);
+    margin-bottom: 48px;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    background: var(--ditto-body);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(155, 122, 184, 0.25);
+  }
+
+  .avatar::before,
+  .avatar::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--ditto-dark);
+    border-radius: 50%;
+    top: 28px;
+  }
+  .avatar::before { left: 20px; }
+  .avatar::after { right: 20px; }
+
+  .mouth {
+    position: absolute;
+    width: 14px;
+    height: 6px;
+    background: var(--ditto-dark);
+    border-radius: 0 0 14px 14px;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ditto-ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .tagline {
+    color: var(--ditto-muted);
+    font-size: 15px;
+  }
+
+  /* ===== Intro ===== */
+  .intro {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ditto-ink);
+    margin-bottom: 12px;
+  }
+
+  .intro strong {
+    color: var(--ditto-deep);
+    font-weight: 600;
+  }
+
+  .contact {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    margin-bottom: 56px;
+  }
+
+  .contact a {
+    color: var(--ditto-deep);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 14px;
+    background: var(--ditto-light);
+    border-radius: 999px;
+    transition: all 0.2s;
+  }
+
+  .contact a:hover {
+    background: var(--ditto-body);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  /* ===== Sections ===== */
+  section {
+    margin-bottom: 48px;
+  }
+
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ditto-deep);
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--ditto-line);
+  }
+
+  /* ===== Project list ===== */
+  .project-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .project-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ditto-line);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: baseline;
+    transition: padding-left 0.2s;
+  }
+
+  .project-item:hover {
+    padding-left: 8px;
+  }
+
+  .project-item:last-child {
+    border-bottom: none;
+  }
+
+  .project-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ditto-ink);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .project-name:hover {
+    color: var(--ditto-deep);
+  }
+
+  .project-desc {
+    display: block;
+    font-size: 14px;
+    color: var(--ditto-muted);
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  .project-tag {
+    font-size: 12px;
+    color: var(--ditto-deep);
+    background: var(--ditto-light);
+    padding: 3px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--ditto-line);
+    font-size: 13px;
+    color: var(--ditto-muted);
+    text-align: center;
+  }
+
+  footer .blob {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--ditto-body);
+    border-radius: 50%;
+    margin: 0 4px;
+    vertical-align: middle;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 600px) {
+    .container { padding: 48px 20px 80px; }
+    header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    h1 { font-size: 24px; }
+    .intro { font-size: 16px; }
+    .project-item {
+      grid-template-columns: 1fr;
+    }
+    .project-tag { justify-self: start; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="avatar">
+        <div class="mouth"></div>
+      </div>
+      <div>
+        <h1>Wanho Lee</h1>
+        <p class="tagline">AI Engineer · Healthcare</p>
+      </div>
+    </header>
+
+    <p class="intro">
+      Building <strong>production-ready AI healthcare services</strong>.
+    </p>
+
+    <div class="contact">
+      <a href="mailto:leewanho8573@gmail.com">leewanho8573@gmail.com</a>
+      <a href="https://github.com/leewanho" target="_blank" rel="noopener">github.com/leewanho</a>
+    </div>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/Project1-Metabolic-syndrome-" class="project-name" target="_blank" rel="noopener">Project1 — Metabolic Syndrome</a>
+            <span class="project-desc">대사증후군 예측 모델 — 임상 데이터 기반 ML 파이프라인</span>
+          </div>
+          <span class="project-tag">Healthcare ML</span>
+        </li>
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/AtoCatch" class="project-name" target="_blank" rel="noopener">AtoCatch</a>
+            <span class="project-desc">아토피 피부염 이미지 분류 · 진단 보조 시스템</span>
+          </div>
+          <span class="project-tag">Computer Vision</span>
+        </li>
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/pygame" class="project-name" target="_blank" rel="noopener">pygame</a>
+            <span class="project-desc">파이게임 기반 인터랙티브 프로젝트</span>
+          </div>
+          <span class="project-tag">Game</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Learning</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/shopping_review_chat_bot" class="project-name" target="_blank" rel="noopener">shopping_review_chat_bot</a>
+            <span class="project-desc">리뷰 데이터 기반 RAG 챗봇 실험</span>
+          </div>
+          <span class="project-tag">LLM / RAG</span>
+        </li>
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/voicechat" class="project-name" target="_blank" rel="noopener">voicechat</a>
+            <span class="project-desc">음성 입출력 대화 시스템 프로토타입</span>
+          </div>
+          <span class="project-tag">Speech</span>
+        </li>
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/WHBlog" class="project-name" target="_blank" rel="noopener">WHBlog</a>
+            <span class="project-desc">개인 기술 블로그 · 정적 사이트</span>
+          </div>
+          <span class="project-tag">Web</span>
+        </li>
+        <li class="project-item">
+          <div>
+            <a href="https://github.com/leewanho/Saas-landing-page" class="project-name" target="_blank" rel="noopener">Saas-landing-page</a>
+            <span class="project-desc">SaaS 랜딩 페이지 UI 클론</span>
+          </div>
+          <span class="project-tag">Frontend</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <span class="blob"></span> Transforming. <span class="blob"></span> Always. <span class="blob"></span>
+      <br><br>
+      © 2026 Wanho Lee
+    </footer>
+
+  </div>
+</body>
+</html>
