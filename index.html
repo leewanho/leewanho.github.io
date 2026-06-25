@@ -15,9 +15,9 @@
     --ink-soft: #4A4A4A;
     --muted: #8C8276;
     --line: #D8CFC2;
-    --accent: #7A4B9E;          /* Ditto purple — italic name */
+    --accent: #7A4B9E;
     --accent-soft: #B088C7;
-    --tag: #D85A8E;             /* Ditto pink — tag */
+    --tag: #D85A8E;
     --card: #FFFFFF;
   }
 
@@ -33,7 +33,6 @@
     position: relative;
   }
 
-  /* Background gradient blob */
   body::before {
     content: '';
     position: fixed;
@@ -47,7 +46,6 @@
     z-index: 0;
   }
 
-  /* ===== Nav ===== */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -87,7 +85,6 @@
 
   .nav-links a:hover { color: var(--accent); }
 
-  /* ===== Scroll indicator ===== */
   .scroll-indicator {
     position: fixed;
     right: 32px;
@@ -109,14 +106,12 @@
     margin-left: 5px;
   }
 
-  /* ===== Sections ===== */
   section {
     position: relative;
     z-index: 1;
     padding: 0 96px;
   }
 
-  /* ===== Hero ===== */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -205,7 +200,6 @@
     stroke-width: 1.8;
   }
 
-  /* ===== Common section header ===== */
   .section-header {
     margin-bottom: 64px;
   }
@@ -237,7 +231,6 @@
     line-height: 1;
   }
 
-  /* ===== About ===== */
   .about {
     padding-top: 120px;
     padding-bottom: 120px;
@@ -261,7 +254,6 @@
     font-weight: 600;
   }
 
-  /* ===== Skills ===== */
   .skills {
     padding-top: 120px;
     padding-bottom: 120px;
@@ -310,7 +302,6 @@
 
   .skill-card li:last-child { border-bottom: none; }
 
-  /* ===== Projects ===== */
   .projects {
     padding-top: 120px;
     padding-bottom: 120px;
@@ -365,6 +356,23 @@
     color: var(--muted);
   }
 
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(122, 75, 158, 0.08);
+    border: 1px solid var(--accent-soft);
+    border-radius: 4px;
+    padding: 2px 8px;
+    letter-spacing: 0.5px;
+  }
+
   .project-link {
     font-size: 12px;
     color: var(--accent);
@@ -382,7 +390,6 @@
     border-color: var(--accent);
   }
 
-  /* ===== Education ===== */
   .education {
     padding-top: 120px;
     padding-bottom: 160px;
@@ -415,7 +422,6 @@
     font-size: 14px;
   }
 
-  /* ===== Footer ===== */
   footer {
     padding: 48px 96px;
     text-align: center;
@@ -425,7 +431,6 @@
     border-top: 1px solid var(--line);
   }
 
-  /* ===== Responsive ===== */
   @media (max-width: 900px) {
     nav { padding: 18px 24px; }
     .nav-links { gap: 20px; }
@@ -477,7 +482,7 @@
         <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
         github.com/leewanho
       </a>
-      <a href="tel:010-0000-0000">
+      <a href="tel:010-2872-1140">
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         010-2872-1140
       </a>
@@ -503,8 +508,8 @@
       </div>
       <div class="about-text">
         <p>
-          현재는 대사증후군 예측 모델, 아토피 이미지 분류기 등
-          <strong>헬스케어 도메인</strong>에서 다양한 형태의 AI 서비스를 실험하고 있습니다.
+          GNN 기반 DTI 예측, LLM 임상 문서화 등 <strong>헬스케어 AI 연구</strong>를 직접 구현하고
+          XAI·실험 설계·통계 검증까지 end-to-end로 다룹니다.
         </p>
         <p>
           읽기 좋은 코드, 재현 가능한 실험, 명확한 인터페이스를 중요하게 생각합니다.
@@ -524,9 +529,11 @@
         <h3>AI / ML</h3>
         <ul>
           <li>Python</li>
-          <li>PyTorch · TensorFlow</li>
-          <li>scikit-learn · pandas</li>
+          <li>PyTorch · PyG · HuggingFace</li>
+          <li>GNN · ESM-2 · GNNExplainer</li>
+          <li>scikit-learn · XGBoost · SHAP</li>
           <li>LLM · RAG · LangChain</li>
+          <li>RDKit · Whisper ASR</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -562,33 +569,78 @@
       <li class="project-item">
         <span class="project-num">01</span>
         <div class="project-info">
-          <h4>Metabolic Syndrome Predictor</h4>
-          <p>대사증후군 예측 모델 — 임상 데이터 기반 ML 파이프라인</p>
+          <h4>DTI GNN+XAI</h4>
+          <p>GNN+XAI 기반 약물-타깃 결합 친화도 예측 · ESMFold 3D 구조 시각화</p>
+          <div class="project-tags">
+            <span class="project-tag">GAT 약물 인코더</span>
+            <span class="project-tag">ESM-2 650M Fine-tune</span>
+            <span class="project-tag">GNNExplainer</span>
+            <span class="project-tag">KIBA Val CI 0.7121</span>
+            <span class="project-tag">Streamlit 데모</span>
+          </div>
         </div>
-        <a href="https://github.com/leewanho/Project1-Metabolic-syndrome-" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+        <a href="https://github.com/leewanho/Dti-gnn-xai-" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
       <li class="project-item">
         <span class="project-num">02</span>
         <div class="project-info">
-          <h4>AtoCatch</h4>
-          <p>아토피 피부염 이미지 분류 · 진단 보조 시스템</p>
+          <h4>Ambient Clinical Documentation LLM</h4>
+          <p>MEDIQA-Chat 2023 재현 + 한국어 확장 + multi-vendor LLM-as-judge self-bias 검증</p>
+          <div class="project-tags">
+            <span class="project-tag">GPT-4o-mini ICL</span>
+            <span class="project-tag">Self-bias 0.78점 검증</span>
+            <span class="project-tag">9가설 검증(5확인·4기각)</span>
+            <span class="project-tag">Whisper ASR</span>
+            <span class="project-tag">Streamlit 데모</span>
+          </div>
         </div>
-        <a href="https://github.com/leewanho/AtoCatch" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+        <a href="https://github.com/leewanho/Ambient-Clinical-Documentation-LLM" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
       <li class="project-item">
         <span class="project-num">03</span>
         <div class="project-info">
-          <h4>pygame</h4>
-          <p>파이게임 기반 인터랙티브 프로젝트</p>
+          <h4>Atopy Integrated Diagnosis</h4>
+          <p>이미지 + 문진 이중 모델 아토피 통합 진단 시스템</p>
+          <div class="project-tags">
+            <span class="project-tag">EfficientNetV2-S</span>
+            <span class="project-tag">이미지 5분류</span>
+            <span class="project-tag">Isotonic Calibration</span>
+            <span class="project-tag">Bootstrap CI</span>
+          </div>
         </div>
-        <a href="https://github.com/leewanho/pygame" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+        <a href="https://github.com/leewanho/project2-Atopy" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+      </li>
+      <li class="project-item">
+        <span class="project-num">04</span>
+        <div class="project-info">
+          <h4>Metabolic Syndrome Predictor</h4>
+          <p>대사증후군 예측 모델 — 임상 데이터 기반 ML 파이프라인</p>
+          <div class="project-tags">
+            <span class="project-tag">ROC-AUC 0.7347</span>
+            <span class="project-tag">Logistic + Isotonic</span>
+            <span class="project-tag">Streamlit 자가진단</span>
+          </div>
+        </div>
+        <a href="https://github.com/leewanho/Project1-Metabolic-syndrome-" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+      </li>
+      <li class="project-item">
+        <span class="project-num">05</span>
+        <div class="project-info">
+          <h4>AtoCatch</h4>
+          <p>아토피 피부염 이미지 분류 · 진단 보조 시스템</p>
+          <div class="project-tags">
+            <span class="project-tag">Image Classification</span>
+            <span class="project-tag">Grad-CAM</span>
+          </div>
+        </div>
+        <a href="https://github.com/leewanho/AtoCatch" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
     </ul>
 
     <h3 class="project-group-title">Learning</h3>
     <ul class="project-list">
       <li class="project-item">
-        <span class="project-num">04</span>
+        <span class="project-num">06</span>
         <div class="project-info">
           <h4>shopping_review_chat_bot</h4>
           <p>리뷰 데이터 기반 RAG 챗봇 실험</p>
@@ -596,7 +648,7 @@
         <a href="https://github.com/leewanho/shopping_review_chat_bot" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
       <li class="project-item">
-        <span class="project-num">05</span>
+        <span class="project-num">07</span>
         <div class="project-info">
           <h4>voicechat</h4>
           <p>음성 입출력 대화 시스템 프로토타입</p>
@@ -604,7 +656,7 @@
         <a href="https://github.com/leewanho/voicechat" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
       <li class="project-item">
-        <span class="project-num">06</span>
+        <span class="project-num">08</span>
         <div class="project-info">
           <h4>WHBlog</h4>
           <p>개인 기술 블로그 · 정적 사이트</p>
@@ -612,12 +664,20 @@
         <a href="https://github.com/leewanho/WHBlog" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
       <li class="project-item">
-        <span class="project-num">07</span>
+        <span class="project-num">09</span>
         <div class="project-info">
           <h4>Saas-landing-page</h4>
           <p>SaaS 랜딩 페이지 UI 클론</p>
         </div>
         <a href="https://github.com/leewanho/Saas-landing-page" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+      </li>
+      <li class="project-item">
+        <span class="project-num">10</span>
+        <div class="project-info">
+          <h4>pygame (Blood Surfer)</h4>
+          <p>혈관 속 건강식재료 수집 2D 아케이드 게임</p>
+        </div>
+        <a href="https://github.com/leewanho/pygame" target="_blank" rel="noopener" class="project-link">GitHub →</a>
       </li>
     </ul>
   </section>
